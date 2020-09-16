@@ -38,11 +38,11 @@ You can download the pre-trained models from the following links and keep them u
 
 ### 1) Training
 Our model is trained in two stages: 1) training the deconvolution module and 2) training the refinement model. 
-## Train the deconvolution module using:
+#### Train the deconvolution module using:
 ```bash
 python train.py --model [stage] --checkpoints [path to checkpoints]
 ```
-## Train the refinement module using:
+#### Train the refinement module using:
 Create a `config.yaml` file similar to the [example config file]() and copy it under CEEC directory.
 Train the model using:
 ```bash
