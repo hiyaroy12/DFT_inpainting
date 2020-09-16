@@ -10,6 +10,7 @@ In this paper, we present a novel image inpainting technique using frequency dom
 - NVIDIA GPU + CUDA cuDNN
 - some dependencies like cv2, numpy etc. 
 
+
 ## Installation
 - Clone this repo:
 ```bash
@@ -76,3 +77,5 @@ To evaluate the model,first run the model in test mode against your validation s
 ```bash
 python metrics.py --data-path [path to validation set] --output-path [path to model output]
 ```
+
+
