@@ -10,29 +10,69 @@ In this paper, we present a novel image inpainting technique using frequency dom
 - NVIDIA GPU + CUDA cuDNN
 - some dependencies like cv2, numpy etc. 
 
-## Installation:
+## Installation
 - Clone this repo:
-
-
-## Dataset: 
-- Dataset can be downloaded here:
-
-### 1) Training:
-To train the model, create a config.yaml file similar to the example config file and copy it under CEEC directory.
-- You can train the model for different clusters "n" (0-4 in our case) by using:
 ```bash
-python train.py --dataset mars_hirise --cluster "n" --l1_adv 
+git clone https://github.com/hiyaroy12/DFT_inpainting.git
+cd DFT_inpainting
+```
+- Install PyTorch and dependencies from http://pytorch.org
+- Install python requirements:
+```bash
+pip install -r requirements.txt
+```
+
+## Datasets
+### 1) Images
+We use [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [Paris Street-View](https://github.com/pathak22/context-encoder) and [DTD texture](https://www.robots.ox.ac.uk/~vgg/data/dtd/) datasets. You can download the datasets from the official websites to train the model. 
+
+### 2) Irregular Masks
+We train our model on the irregular mask dataset provided by [ et al.](). You can download the Irregular Mask Dataset from [their website]().
+
+We test our model on the irregular mask dataset provided by [Liu et al.](https://arxiv.org/abs/1804.07723). You can download the Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
+
+## Getting Started
+You can download the pre-trained models from the following links and keep them under `./checkpoints` directory.
+
+[CelebA]() | [Paris-StreetView]() | [DTD texture dataset]()
+
+### 1) Training
+Our model is trained in two stages: 1) training the deconvolution module and 2) training the refinement model. 
+## Train the deconvolution module using:
+```bash
+python train.py --model [stage] --checkpoints [path to checkpoints]
+```
+## Train the refinement module using:
+Create a `config.yaml` file similar to the [example config file]() and copy it under CEEC directory.
+Train the model using:
+```bash
+python train.py --model [stage] --checkpoints [path to checkpoints]
 ```
 
 ### 2) Testing
-- To test the model for different clusters "n" (0-4 in our case) use:
+To test the model, create a `config.yaml` file similar to the [example config file](config.yml.example) and copy it under your checkpoints directory. 
+
+To test the model:
 ```bash
-python test.py --dataset mars_hirise --cluster "0" --l1_adv
+python test.py \
+  --model [stage] \
+  --checkpoints [path to checkpoints] \
+  --input [path to input directory or file] \
+  --mask [path to masks directory or mask file] \
+  --output [path to the output directory]
 ```
 
-### 3) Evaluation:
-To evaluate the model, first run the model in test mode against your validation set and save the results on disk. 
-Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
+We provide some test examples under `./examples` directory. Please download the [pre-trained models](#getting-started) and run:
+```bash
+python test.py \
+  --checkpoints ./checkpoints/places2 
+  --input ./examples/places2/images 
+  --mask ./examples/places2/masks
+  --output ./checkpoints/results
+```
+
+### 3) Evaluating
+To evaluate the model,first run the model in test mode against your validation set and save the results on disk. Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
 ```bash
 python metrics.py --data-path [path to validation set] --output-path [path to model output]
 ```
