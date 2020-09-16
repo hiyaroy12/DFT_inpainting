@@ -40,7 +40,7 @@ You can download the pre-trained models from the following links and keep them u
 Our model is trained in two stages: 1) training the deconvolution module and 2) training the refinement model. 
 #### Train the deconvolution module using:
 ```bash
-python train.py --model [stage] --checkpoints [path to checkpoints]
+CUDA_VISIBLE_DEVICES=6 python stage_1/train_color-randombbox.py --dataset celeba --use_regular 1
 ```
 #### Train the refinement module using:
 Create a `config.yaml` file similar to the [example config file]() and copy it under CEEC directory.
