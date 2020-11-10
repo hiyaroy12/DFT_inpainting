@@ -45,9 +45,13 @@ CUDA_VISIBLE_DEVICES=6 python stage_1/train_color-randombbox.py --dataset celeba
 ```
 #### Train the refinement module using:
 Create a `config.yaml` file similar to the [example config file]() and copy it under CEEC directory.
-Train the model using:
+Train the model for "regular mask" using:
 ```bash
-python train.py --model [stage] --checkpoints [path to checkpoints]
+python stage_2/CEEC/L1_adv_fft.py --n_epochs [] --dataset [] --use_regular 1
+```
+Train the model for "irregular mask" using:
+```bash
+python stage_2/CEEC/L1_adv_fft-irregular.py --n_epochs [] --dataset [] --use_irregular 1
 ```
 
 ### 2) Testing
