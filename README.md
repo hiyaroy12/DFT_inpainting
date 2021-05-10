@@ -80,7 +80,7 @@ To test the model:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft-test.py --dataset [dataset_name] --use_regular 1
 ```
--- Example:
+Example:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft-test.py --dataset celeba --use_regular 1
 ```
