@@ -41,17 +41,26 @@ You can download the pre-trained models from the following links and keep them u
 Our model is trained in two stages: 1) training the deconvolution module and 2) training the refinement model. 
 #### Train the deconvolution module using:
 ```bash
-CUDA_VISIBLE_DEVICES=6 python stage_1/train_color-randombbox.py --dataset celeba --use_regular 1
+CUDA_VISIBLE_DEVICES=1 python stage_1/train_color-randombbox.py --dataset celeba --use_regular 1
 ```
+
 #### Train the refinement module using:
-Create a `config.yaml` file similar to the [example config file]() and copy it under CEEC directory.
-Train the model for "regular mask" using:
+Train the model for `regular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft.py --n_epochs [] --dataset [] --use_regular 1
 ```
-Train the model for "irregular mask" using:
+Example:
+```bash
+CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1
+```
+
+Train the model for `irregular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft-irregular.py --n_epochs [] --dataset [] --use_irregular 1
+```
+Example:
+```bash
+CUDA_VISIBLE_DEVICES=1 python stage_2/CEEC/L1_adv-irregular.py --n_epochs 300 --dataset celeba --use_irregular 1
 ```
 
 ### 2) Testing
@@ -62,7 +71,6 @@ Please download the [stage-1 pre-trained models](https://drive.google.com/drive/
 Please download the [stage-2 pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `L1_adv_fft_results/`. Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
 
 Then for testing against your validation set for regular masks, run:
-
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft-test.py --dataset [dataset_name] --use_regular 1
 ```
