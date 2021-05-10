@@ -57,7 +57,7 @@ python stage_2/CEEC/L1_adv_fft-irregular.py --n_epochs [] --dataset [] --use_irr
 ### 2) Testing
 To test the model:
 
-Please download the [stage-1 pre-trained models](https://drive.google.com/drive/folders/1ZWtyd8jb9R14OqJN0ytpgYNDz3XbLu7_?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `logs/`. Here `regular_{}_net.pth` and `irregular_{}_net.pth` refer to regular and irregular masks.
+Please download the [stage-1 pre-trained models](https://drive.google.com/drive/folders/1ZWtyd8jb9R14OqJN0ytpgYNDz3XbLu7_?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `logs/` (Please check the model path correctly in the code). Here `regular_{}_net.pth` and `irregular_{}_net.pth` refer to regular and irregular masks.
 
 Please download the [stage-2 pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `L1_adv_fft_results/`. Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
 
@@ -76,14 +76,18 @@ CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv-irregular-test.py --dataset [dataset_n
 To evaluate the model, first run the model in test mode against your validation set and save the results on disk. 
 
 #### Pre-trained Models: 
-Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets and put them into `L1_adv_fft_results/`
+Please download the [stage-1 pre-trained models](https://drive.google.com/drive/folders/1ZWtyd8jb9R14OqJN0ytpgYNDz3XbLu7_?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `logs/` (Please check the model path correctly in the code). Here `regular_{}_net.pth` and `irregular_{}_net.pth` refer to regular and irregular masks.
 
-Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
+Please download the [stage-2 pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `L1_adv_fft_results/`. Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
 
 #### Metric calculation:
 Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
 ```bash
-python metrics.py --data-path [path to validation set] --output-path [path to model output]
+CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path [path to validation set] --output-path [path to model output]
+```
+Example: 
+```bash
+CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path ./CEEC_fft_infer_results/dtd_images/clean/ --output-path ./CEEC_fft_infer_results/dtd_images/reconstructed/ 
 ```
 
 
