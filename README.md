@@ -28,9 +28,9 @@ pip install -r requirements.txt
 We use [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [Paris Street-View](https://github.com/pathak22/context-encoder) and [DTD texture](https://www.robots.ox.ac.uk/~vgg/data/dtd/) datasets. You can download the datasets from the official websites to train the model. 
 
 ### 2) Irregular Masks
-We train our model on the irregular mask dataset provided by [ et al.](). You can download the Irregular Mask Dataset from [their website]().
+We train our model on the irregular mask dataset provided by [ et al.]() You can download the Irregular Mask Dataset from [their website]().
 
-We test our model on the irregular mask dataset provided by [Liu et al.](https://arxiv.org/abs/1804.07723). You can download the Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
+We test our model on the irregular mask dataset provided by [Liu et al](https://arxiv.org/abs/1804.07723). You can download the Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
 
 ## Getting Started
 You can download the pre-trained models from the following links and keep them under `./checkpoints` directory.
