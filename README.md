@@ -48,8 +48,9 @@ CUDA_VISIBLE_DEVICES=1 python stage_1/train_color-randombbox.py --dataset celeba
 Train the model for `regular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft.py --n_epochs [] --dataset [] --use_regular 1
+CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1 (Example)
 ```
-Example:
+- Example:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1
 ```
@@ -58,7 +59,7 @@ Train the model for `irregular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft-irregular.py --n_epochs [] --dataset [] --use_irregular 1
 ```
-Example:
+- Example:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python stage_2/CEEC/L1_adv-irregular.py --n_epochs 300 --dataset celeba --use_irregular 1
 ```
