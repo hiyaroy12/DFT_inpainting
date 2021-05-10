@@ -75,6 +75,7 @@ python test.py \
   --mask ./examples/places2/masks
   --output ./checkpoints/results
 ```
+Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
 
 ### 3) Evaluating
 To evaluate the model,first run the model in test mode against your validation set and save the results on disk. 
@@ -82,8 +83,7 @@ To evaluate the model,first run the model in test mode against your validation s
 #### Pre-trained Models: 
 Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets and put them into `L1_adv_fft_results/`
 
-Here `random_bbox_{}_generator.h5f` and `random_bbox_{}_discriminator.h5f` refer to regular masks.
-Here `irregular_{}_generator.h5f` and `irregular_{}_discriminator.h5f` refer to irregular masks.
+Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
 
 #### Metric calculation:
 Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
