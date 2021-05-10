@@ -77,7 +77,14 @@ python test.py \
 ```
 
 ### 3) Evaluating
-To evaluate the model,first run the model in test mode against your validation set and save the results on disk. Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
+To evaluate the model,first run the model in test mode against your validation set and save the results on disk. 
+
+#### Pretrained Models: 
+Download the pretrained models [CelebA](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) 
+and put them into `L1_adv_fft_results/`
+
+#### Metric calculation:
+Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
 ```bash
 python metrics.py --data-path [path to validation set] --output-path [path to model output]
 ```
