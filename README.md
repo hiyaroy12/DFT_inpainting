@@ -67,7 +67,8 @@ python test.py \
   --output [path to the output directory]
 ```
 
-We provide some test examples under `./examples` directory. Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets and run:
+We provide some test examples under `./examples` directory. Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets, put them into `L1_adv_fft_results/`
+and run:
 ```bash
 python test.py \
   --checkpoints ./checkpoints/places2 
