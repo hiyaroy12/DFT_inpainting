@@ -28,7 +28,7 @@ pip install -r requirements.txt
 We use [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [Paris StreetView](https://github.com/pathak22/context-encoder) and [DTD texture](https://www.robots.ox.ac.uk/~vgg/data/dtd/) datasets. You can download the datasets from the official websites to train the model. 
 
 ### 2) Irregular Masks
-We train our model on the irregular mask dataset provided by [Yu et al.]() You can download the Irregular Mask Dataset from [their website]().
+We train our model on the irregular mask dataset similar to [Yu et al.](https://github.com/JiahuiYu/generative_inpainting/blob/3a5324373ba52c68c79587ca183bc10b9e57b783/inpaint_ops.py#L156)
 
 We test our model on the irregular mask dataset provided by [Liu et al](https://arxiv.org/abs/1804.07723). You can download the Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
 
