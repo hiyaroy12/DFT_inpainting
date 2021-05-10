@@ -106,7 +106,7 @@ To evaluate the model, first run the model in test mode against your validation 
 Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Error:
 ```bash
 CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path [path to validation set] --output-path [path to model output]
-
+```
 Example: 
 ```bash
 CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path ./CEEC_fft_infer_results/dtd_images/clean/ --output-path ./CEEC_fft_infer_results/dtd_images/reconstructed/ 
