@@ -48,7 +48,6 @@ CUDA_VISIBLE_DEVICES=1 python stage_1/train_color-randombbox.py --dataset celeba
 Train the model for `regular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft.py --n_epochs [] --dataset [] --use_regular 1
-CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1 (Example)
 ```
 - Example:
 ```bash
@@ -75,7 +74,7 @@ Then for testing against your validation set for regular masks, run:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft-test.py --dataset [dataset_name] --use_regular 1
 ```
-Example:
+- Example:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft-test.py --dataset celeba --use_regular 1
 ```
@@ -84,7 +83,7 @@ Testing against your validation set for irregular masks, run:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv-irregular-test.py --dataset [dataset_name] --use_irregular 1 --perc_test_mask []
 ```
-Example:
+- Example:
 ```bash
 CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv-irregular-test.py --dataset celeba --use_irregular 1 --perc_test_mask 0.1
 ```
@@ -102,7 +101,7 @@ Then run metrics.py to evaluate the model using PSNR, SSIM and Mean Absolute Err
 ```bash
 CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path [path to validation set] --output-path [path to model output]
 ```
-Example: 
+- Example: 
 ```bash
 CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path ./CEEC_fft_infer_results/dtd_images/clean/ --output-path ./CEEC_fft_infer_results/dtd_images/reconstructed/ 
 ```
