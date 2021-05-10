@@ -54,7 +54,6 @@ CUDA_VISIBLE_DEVICES=1 python stage_1/train_color_irregular.py --epochs 100 --da
 - Train the model for `regular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft.py --n_epochs [] --dataset [] --use_regular 1
-CUDA_VISIBLE_DEVICES=1 python stage_2/CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1 (Example)
 ```
 Example:
 ```bash
