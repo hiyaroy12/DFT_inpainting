@@ -55,31 +55,25 @@ python stage_2/CEEC/L1_adv_fft-irregular.py --n_epochs [] --dataset [] --use_irr
 ```
 
 ### 2) Testing
-To test the model, create a `config.yaml` file similar to the [example config file](config.yml.example) and copy it under your checkpoints directory. 
-
 To test the model:
+
+Please download the [stage-1 pre-trained models](https://drive.google.com/drive/folders/1ZWtyd8jb9R14OqJN0ytpgYNDz3XbLu7_?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `logs/`. Here `regular_{}_net.pth` and `irregular_{}_net.pth` refer to regular and irregular masks.
+
+Please download the [stage-2 pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA, Paris-StreetView, and DTD datasets, put them into `L1_adv_fft_results/`. Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
+
+Then for testing against your validation set for regular masks, run:
+
 ```bash
-python test.py \
-  --model [stage] \
-  --checkpoints [path to checkpoints] \
-  --input [path to input directory or file] \
-  --mask [path to masks directory or mask file] \
-  --output [path to the output directory]
+CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft-test.py --dataset [dataset_name] --use_regular 1
 ```
 
-We provide some test examples under `./examples` directory. Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets, put them into `L1_adv_fft_results/`
-and run:
+Testing against your validation set for irregular masks, run:
 ```bash
-python test.py \
-  --checkpoints ./checkpoints/places2 
-  --input ./examples/places2/images 
-  --mask ./examples/places2/masks
-  --output ./checkpoints/results
+CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv-irregular-test.py --dataset [dataset_name] --use_irregular 1 --perc_test_mask []
 ```
-Here `random_bbox_{}_generator.h5f`, `random_bbox_{}_discriminator.h5f` refer to regular masks and `irregular_{}_generator.h5f`, `irregular_{}_discriminator.h5f` refer to irregular masks.
 
 ### 3) Evaluating
-To evaluate the model,first run the model in test mode against your validation set and save the results on disk. 
+To evaluate the model, first run the model in test mode against your validation set and save the results on disk. 
 
 #### Pre-trained Models: 
 Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets and put them into `L1_adv_fft_results/`
