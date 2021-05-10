@@ -67,7 +67,7 @@ python test.py \
   --output [path to the output directory]
 ```
 
-We provide some test examples under `./examples` directory. Please download the [pre-trained models](#getting-started) and run:
+We provide some test examples under `./examples` directory. Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets and run:
 ```bash
 python test.py \
   --checkpoints ./checkpoints/places2 
@@ -79,9 +79,8 @@ python test.py \
 ### 3) Evaluating
 To evaluate the model,first run the model in test mode against your validation set and save the results on disk. 
 
-#### Pretrained Models: 
-Download the pretrained models for CelebA and Paris-StreetView datasets [google drive](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) datasets
-and put them into `L1_adv_fft_results/`
+#### Pre-trained Models: 
+Please download the [pre-trained models](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) for CelebA and Paris-StreetView datasets and put them into `L1_adv_fft_results/`
 
 Here `random_bbox_{}_generator.h5f` and `random_bbox_{}_discriminator.h5f` refer to regular masks.
 Here `irregular_{}_generator.h5f` and `irregular_{}_discriminator.h5f` refer to irregular masks.
