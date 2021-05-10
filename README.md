@@ -28,7 +28,7 @@ pip install -r requirements.txt
 We use [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [Paris StreetView](https://github.com/pathak22/context-encoder) and [DTD texture](https://www.robots.ox.ac.uk/~vgg/data/dtd/) datasets. You can download the datasets from the official websites to train the model. 
 
 ### 2) Irregular Masks
-We train our model on the irregular mask dataset provided by [ et al.]() You can download the Irregular Mask Dataset from [their website]().
+We train our model on the irregular mask dataset provided by [Yu et al.]() You can download the Irregular Mask Dataset from [their website]().
 
 We test our model on the irregular mask dataset provided by [Liu et al](https://arxiv.org/abs/1804.07723). You can download the Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
 
@@ -54,11 +54,10 @@ CUDA_VISIBLE_DEVICES=1 python stage_1/train_color_irregular.py --epochs 100 --da
 - Train the model for `regular mask` using:
 ```bash
 python stage_2/CEEC/L1_adv_fft.py --n_epochs [] --dataset [] --use_regular 1
-```
-Example:
-```bash
-CUDA_VISIBLE_DEVICES=1 python CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1
-```
+
+# Example:
+CUDA_VISIBLE_DEVICES=1 python stage_2/CEEC/L1_adv_fft.py --dataset celeba --n_epochs 300 --use_regular 1
+
 
 - Train the model for `irregular mask` using:
 ```bash
