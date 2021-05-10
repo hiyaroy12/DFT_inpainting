@@ -80,7 +80,7 @@ python test.py \
 To evaluate the model,first run the model in test mode against your validation set and save the results on disk. 
 
 #### Pretrained Models: 
-Download the pretrained models [CelebA] and [Paris-StreetView](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) datasets
+Download the pretrained models for CelebA and Paris-StreetView datasets [google drive](https://drive.google.com/drive/folders/1K4ry5qlkzMzk3ZqrS1sLm4p949ebIXfv?usp=sharing) datasets
 and put them into `L1_adv_fft_results/`
 
 Here `random_bbox_{}_generator.h5f` and `random_bbox_{}_discriminator.h5f` refer to regular masks.
