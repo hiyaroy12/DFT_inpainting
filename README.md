@@ -5,7 +5,7 @@
 In this paper, we present a novel image inpainting technique using frequency domain information. Prior works on image inpainting predict the missing pixels by training neural networks using only the spatial domain information. However, these methods still struggle to reconstruct high-frequency details for real complex scenes, leading to a discrepancy in color, boundary artifacts, distorted patterns, and blurry textures. To alleviate these problems, we investigate if it is possible to obtain better performance by training the networks using frequency domain information (Discrete Fourier Transform) along with the spatial domain information. To this end, we propose a frequency-based deconvolution module that enables the network to learn the global context while selectively reconstructing the high-frequency components. We evaluate our proposed method on the publicly available datasets CelebA, Paris Streetview, and DTD texture dataset, and show that our method outperforms current state-of-the-art image inpainting techniques both qualitatively and quantitatively.
 
 <p align='center'>  
-  <img src='https://user-images.githubusercontent.com/1743048/50673917-aac15080-0faf-11e9-9100-ef10864087c8.png' width='870'/>
+  <img src='https://github.com/hiyaroy12/DFT_inpainting/blob/master/Picture1.png' width='870'/>
 </p>
 (a) Input images with missing regions; (b) DFT of first-stage reconstruction by our deconvolution network; (c) image inpainting results (after the second stage) of our proposed approach; and (d) GT image. The last column shows the prediction of the missing region obtained from our method and original pixel values for the same region in the GT image.
 
