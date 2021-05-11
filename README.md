@@ -1,8 +1,14 @@
 ## DFT_inpainting
 Image inpainting using frequency domain priors.
+[Paper](https://doi.org/10.1117/1.JEI.30.2.023016) | [BibTex](#citation)
 
 ## Abstract
-In this paper, we present a novel image inpainting technique using frequency domain information. Prior works on image inpainting predict the missing pixels by training neural networks using only the spatial domain information. However, these methods still struggle to reconstruct high-frequency details for real complex scenes, leading to a discrepancy in color, boundary artifacts, distorted patterns, and blurry textures. To alleviate these problems, we investigate if it is possible to obtain better performance by training the networks using frequency domain information (Discrete Fourier Transform) along with the spatial domain information. To this end, we propose a frequency-based deconvolution module that enables the network to learn the global context while selectively reconstructing the high-frequency components. We evaluate our proposed method on the publicly available datasets CelebA, Paris Streetview, and DTD texture dataset, and show that our method outperforms current state-of-the-art image inpainting techniques both qualitatively and quantitatively. 
+In this paper, we present a novel image inpainting technique using frequency domain information. Prior works on image inpainting predict the missing pixels by training neural networks using only the spatial domain information. However, these methods still struggle to reconstruct high-frequency details for real complex scenes, leading to a discrepancy in color, boundary artifacts, distorted patterns, and blurry textures. To alleviate these problems, we investigate if it is possible to obtain better performance by training the networks using frequency domain information (Discrete Fourier Transform) along with the spatial domain information. To this end, we propose a frequency-based deconvolution module that enables the network to learn the global context while selectively reconstructing the high-frequency components. We evaluate our proposed method on the publicly available datasets CelebA, Paris Streetview, and DTD texture dataset, and show that our method outperforms current state-of-the-art image inpainting techniques both qualitatively and quantitatively.
+
+<p align='center'>  
+  <img src='https://user-images.githubusercontent.com/1743048/50673917-aac15080-0faf-11e9-9100-ef10864087c8.png' width='870'/>
+</p>
+(a) Input images with missing regions; (b) DFT of first-stage reconstruction by our deconvolution network; (c) image inpainting results (after the second stage) of our proposed approach; and (d) GT image. The last column shows the prediction of the missing region obtained from our method and original pixel values for the same region in the GT image.
 
 ## Prerequisites: 
 - Python 3
@@ -112,4 +118,19 @@ Example:
 CUDA_VISIBLE_DEVICES=9 python CEEC/metric_cal/metrics.py --data-path ./CEEC_fft_infer_results/dtd_images/clean/ --output-path ./CEEC_fft_infer_results/dtd_images/reconstructed/ 
 ```
 
+## Citation
+If you use this code for your research, please cite our paper <a href="https://doi.org/10.1117/1.JEI.30.2.023016">Image inpainting using frequency domain priors </a>:
+
+```
+@article{roy2021image,
+  title={Image inpainting using frequency-domain priors},
+  author={Roy, Hiya and Chaudhury, Subhajit and Yamasaki, Toshihiko and Hashimoto, Tatsuaki},
+  journal={Journal of Electronic Imaging},
+  volume={30},
+  number={2},
+  pages={023016},
+  year={2021},
+  publisher={International Society for Optics and Photonics}
+}
+```
 
