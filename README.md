@@ -1,5 +1,4 @@
-## DFT_inpainting
-Image inpainting using frequency domain priors.
+## Image inpainting using frequency domain priors
 [Paper](https://doi.org/10.1117/1.JEI.30.2.023016) | [BibTex](#citation)
 
 ## Abstract
